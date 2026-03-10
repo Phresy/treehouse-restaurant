@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -26,9 +31,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className={`${playfair.variable} ${inter.variable} font-sans antialiased bg-background text-foreground`}>
-        {children}
+    <html 
+      lang="en" 
+      className={cn(
+        "scroll-smooth", 
+        geist.variable, 
+        playfair.variable, 
+        inter.variable
+      )}
+    >
+      <body className="font-sans antialiased bg-background text-foreground selection:bg-gold/30 flex flex-col min-h-screen">
+        {/* Navigation */}
+        <Navbar />
+        
+        {/* Main Content Area */}
+        <main className="grow">
+          {children}
+        </main>
+        
+        {/* Footer */}
+        <Footer />
       </body>
     </html>
   );

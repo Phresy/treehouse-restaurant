@@ -9,13 +9,13 @@ const Hero = () => {
       {/* Background Image with Dark Vignette Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-bg.jpg" // Ensure you have a high-res image in /public
+          src="/images/th16.jpeg"
           alt="Treehouse Restaurant Interior"
           fill
           className="object-cover opacity-60"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-treehouse-deep/80" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-treehouse-deep/80" />
       </div>
 
       {/* Content */}
@@ -59,7 +59,7 @@ const Hero = () => {
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gold/50"
       >
-        <div className="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent" />
+        <div className="w-px h-12 bg-linear-to-b from-gold to-transparent" />
       </motion.div>
     </section>
   );
